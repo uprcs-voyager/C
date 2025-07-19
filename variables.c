@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 int main () {
     // integer dengan data tipe int ( integer ), gunakan integer jika angka adalah bilangan bulat
@@ -23,6 +24,21 @@ int main () {
     char grade = 'A';
     //gunakan format specifier %c untuk variable tipe char 
     printf("Ini adalah char ( character ) /////\nNilai mu adalah : %c\n", grade);
+
+    // di dalam bahasa pemrograman C tidak ada string, melainkan menggunakan array dari char (character) untuk merepresentasikan string
+    // gunakan [] jika ingin merepresentasikan string 
+    char status[] = "halo saya saat ini sedang mempelajari bahasa pemrograman C";
+    printf(status);
+
+    // tipe data selanjutnya adalah boolean, jika ingin menggunakan boolean jangan lupa #include <stdbool.h>
+    // boolean memiliki 2 nilai yaitu true and false, true adalah 1 dan false adalah 0 
+    bool isOnline = false;
+    
+    if(isOnline) {
+        printf("\nKamu sekarang ONLINE !!!");
+    } else {
+        printf("\nKamu sekarang OFFLINE ");
+    }
 
     return 0;
 }
