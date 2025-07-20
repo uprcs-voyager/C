@@ -40,5 +40,9 @@ int main () {
         printf("\nKamu sekarang OFFLINE ");
     }
 
+    // format specifier yang digunakan ketika char menggunakan [] adalah %s
+    char nama_perusahaan[] = "-- Limited Frontier Ltd --";
+    printf("\n\nSelamat datang di %s", nama_perusahaan);
+
     return 0;
 }
