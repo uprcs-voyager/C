@@ -37,7 +37,31 @@ int main () {
 
     ////////////// PRECISION /////////////////////
     // selanjutnya adalah output yang di format menggunakan format specifier precision 
+    printf("\n\n/// PRECISION ///\n\n");
+    printf("default behavior dari C adalah untuk menampilkan 6 digit setelah decimal ketika menampilkan angka floating point\n");
+    printf("berikut adalah contoh output float yang belum di format\n");
+
+    float price1 = 19.99;
+    float price2 = 1.50;
+    float price3 = -100.00;
     
+    printf("%f\n", price1);
+    printf("%f\n", price2);
+    printf("%f\n", price3);
+
+    // untuk mengatur berapa banyak digit yang ini di tampilkan tambahkan .(angka) sebelum huruf dari format specifier
+    // contoh : "%.2f"
+
+    printf("\nini merupakan output dari tipe data float yang di format menggunakan precision, untuk menampilkan 2 angka setelah titik\n");
+    printf("%.2f\n", price1);
+    printf("%.2f\n", price2);
+    printf("%.2f\n", price3);
+    // ingat output akan di bulatkan dalam case - case tertentu
+    //output yang di bulatkan 
+    float price4 = 20.99;
+    printf("\n%.1f<-- ini seharusnya adalah 20.99 tetepi karena di format agar menampilkan\n1 angka setelah titik. maka output dibulatkan menjadi 21", price4);
     
+    // perlu di ingat bahwa width dan precision dapat digunakan secara bersamaan seperi "%0.2f"
+     
     return 0;
 }
