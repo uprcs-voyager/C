@@ -53,7 +53,7 @@ int main () {
     // x/=10;
     // x*=10;
 
-    // printf("\n%d",x);
+    printf("\n%d",x);
 
     
 
