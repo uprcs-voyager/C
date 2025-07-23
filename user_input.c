@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 int main () {
 
@@ -27,13 +28,17 @@ int main () {
     printf("silahkan masukan grade anda (masukan dalam bentuk huruf): "); // <-- user tidak akan memiliki kesempatan untuk mengisi variable grade karena input buffer yang dimana scanf sudah membaca newline sebagai input baru
     scanf(" %c", &grade); // <-- shortcut yang dapat digunakan adalah menambahkan spasi sebelum %c
     printf("Terakhir tolong masukan nama anda: ");
-    scanf("%s",&name);
+    // scanf("%s",&name); // <-- scanf tidak dapat membaca spasi jadi ketika nama yang di input adalah "abc def" scanf hanya akan membaca abc
+    getchar(); // <-- mengantisipasi new line char pada input buffer
+    fgets(name, sizeof(name), stdin); // <-- gunakan sizeof() agar tidak perlu mengubah size secara manual
+    name[strlen(name)-1] = '\0'; // <--- menghilangkan new line character agar tidak tampil di output
 
     // MENAMNPILKAN USER INPUT
     printf("\n\nUmur anda adalah: %d", age);
     printf("\nGPA anda adalah: %.2f", gpa);
     printf("\nGrade anda adalah: %c", grade);
     printf("\nNama anda adalah: %s", name);
-
+    // input nama akan memberika new line kosong saat di output
+    // hal itu dikarenakan fgets akan membaca 'enter' sebagau new line '\n'
     return 0;
 }
