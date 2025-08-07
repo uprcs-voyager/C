@@ -28,8 +28,6 @@ int main () {
     // debugging persentase bunga 
     // float persentase_bunga = bunga/100;
     // printf("persentase bunga anda adalah: %.2f%", persentase_bunga);4
-
-
     // output 
     printf("Jadi modal awal anda setelah %.0f tahun adalah: %.2f", periode, bunga_majemuk);
 
