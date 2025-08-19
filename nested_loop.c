@@ -33,10 +33,27 @@ int main () {
     printf("\n");
 
     // making rectangle using user input 
-    int amount;
-    char user_input = "\0";
+    int baris;
+    int kolom;
+    char user_input = '\0';
 
-    printf("\nHaloo selamat datang di ")
+    printf("\nHaloo selamat datang\n");
+    printf("\nTolong masukan Symbol yang ingin anda gunakan: ");
+    scanf(" %c", &user_input);
+    printf("Tolong masukan jumlah baris yang anda mau (masukan dalam bentuk angka): ");
+    scanf("%d", &baris);
+    printf("Tolong masukan jumlah kolom yang anda mau (masukan dalam bentuk angka): ");
+    scanf("%d", &kolom);
+
+    for (int i = 0; i <= baris; i++)
+    {  
+        printf("\n");
+        for (int j = 0; j<=kolom; j++) {
+            printf("%c",user_input);
+        }
+        
+    }
+    
     
 
 
