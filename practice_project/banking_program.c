@@ -8,11 +8,21 @@ float withdraw(float balance);
 int checkPassword();
 
 
-int main (bool condition) {
-    checkPassword();
-    if ( condition == true)
+int main (int condition) {
+    int passwordCorrect =  checkPassword();
+   
+    int choice;
+    if ( passwordCorrect == 1)
     {
-        /* code */
+        do
+        {
+        printf("\n\nSilahkan pilih opsi di bawah ini\n");
+        printf("1. Cek Saldo Bank\n");
+        printf("2. Deposit Uang\n");
+        printf("3. Ambil Uang Dari Tabungan\n");
+        printf("Masukan pilihan anda dalam bentuk angka: ");
+        scanf("%d", &choice);
+        } while (choice < 1 || choice > 3);
     }
     
 
@@ -21,14 +31,13 @@ int main (bool condition) {
 
 int checkPassword () {
     int pass;
-    
     do
     {
     printf("\n***** Selamat datang di bank AKRONIM *****\n\n");
     printf("Sebelum melanjutkan Tolong masukan password angka anda (5 digit)");
     scanf("%d", &pass);
-        if(pass == 12345) {
-            bool condition = true;
+        if(pass ==12345) {
+           return 1;
         } else {
             printf("\nPassword anda salah");
         }
