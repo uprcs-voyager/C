@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 void checkBalance(float balance);
 float deposit();
@@ -8,9 +9,9 @@ float withdraw(float balance);
 int checkPassword();
 
 
-int main (int condition) {
+int main () {
+    float balance = 1000000;
     int passwordCorrect =  checkPassword();
-   
     int choice;
     if ( passwordCorrect == 1)
     {
@@ -20,12 +21,41 @@ int main (int condition) {
         printf("1. Cek Saldo Bank\n");
         printf("2. Deposit Uang\n");
         printf("3. Ambil Uang Dari Tabungan\n");
+        printf("4. Keluar dari program\n");
         printf("Masukan pilihan anda dalam bentuk angka: ");
         scanf("%d", &choice);
-        } while (choice < 1 || choice > 3);
+        } while (choice < 1 || choice > 4);
     }
+    switch (choice)
+    {
     
-
+    case 1:
+        checkBalance(balance);
+        break;
+    case 2:
+    {    
+        char again = '\0'; 
+        float uangBaru = deposit();
+        float total = uangBaru+balance;
+        printf("\nDeposit berhasil di lakukan total uang anda sekarang adalah: %f\n", total);
+        printf("Apakah anda ingin melakukan operasi lain? (Y/N): ");
+        scanf(" %c", &again);
+        if (again == 'Y' || again == 'y')
+        {
+            main();
+        } else {
+            printf("\n\n** Selamat tinggal!! Terimakasih telah menggunakan layanan bank kami **");
+        }
+        break;
+    }
+    case 3:
+        withdraw(balance);
+        break;
+    
+    default:
+    printf("\n**Selamat tinggal !!**");
+        break;
+    }
     return 0;
 }   
 
@@ -44,5 +74,52 @@ int checkPassword () {
     } while (pass != 12345);
     
 
+    return 0;
+}
 
+void checkBalance(float balance) { 
+
+    if (balance == 0)
+    {
+       printf("\nJumlah uang anda saat ini adalah kosong\nHarap melakukan pengisian\n");
+       printf("Dengan cara memilih opsi kedua (2), yaitu deposit");
+    } else {
+        printf("Jumlah uang anda saat ini adalah adalah: Rp.%.0f", balance);        
+    }
+    
+    char choice ='\0';
+    printf("\nApakah anda ingin melakukan memilih opsi lain? (Y/N): ");
+    scanf(" %c", &choice);
+    do
+    {
+        if ( choice == 'Y' || choice == 'y')
+        {
+            main();
+        } else if ( choice == 'N' || choice == 'n') {
+            printf("\nTerimakasih telah menggunakan layanan bang akronim\nSampai Jumpa lagi :)");
+            exit(EXIT_SUCCESS);
+        } else {
+            printf("\nTolong masukan Input yang valid!! (Y/N): ");
+            scanf(" %c", &choice);
+        }
+        
+    } while ( (choice != 'Y' || choice != 'y') || (choice != 'N' || choice != 'n') );
+}
+
+float deposit () {
+    float jumlahDeposit;
+    do
+    {
+        printf("\nTolong masukan jumlah uang yang ingin anda masukan ke dalam bank:\n");
+        printf("");
+        scanf("%f", &jumlahDeposit);
+    } while (jumlahDeposit <= 0);
+     return jumlahDeposit;
+}
+
+float withdraw (float jumlahmone) {
+    printf("Belum selesai");
+
+
+    return 0;
 }
