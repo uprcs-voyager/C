@@ -12,7 +12,7 @@ void helloWorld (char name[], int age)  //  <-- untuk menerima data variable yan
     printf("\nand you are %s right?", name);
     printf("\nHello, nice to meet you %s!, you are %d old this year!!\n", name, age);
 
-}
+}3
 
 int main () {
     // function adalah baris-baris kode yang dapat di 'gunakan' atau di panggil.
