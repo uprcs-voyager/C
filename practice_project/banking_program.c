@@ -4,22 +4,61 @@
 #include <stdlib.h>
 
 void checkBalance(float balance);
-void menu(float balance);
+int menu();
 float deposit(float balance);
 float withdraw(float balance);
 int checkPassword();
 
 
 int main () {
-    float balance = '\0';
+    float balance = 0.0;
+    int choice = '\0';
     int passwordCorrect =  checkPassword();
     if ( passwordCorrect == 1)
     {
-       menu(balance);
-    } 
+       do
+       {
+        int choice = menu();
+        switch (choice)
+        {
+        case 1 :
+            checkBalance(balance);
+            break;
+        case 2 :
+           balance = deposit(balance);
+            break;
+        case 3 :
+            /* code */
+            break;
+        case 4 :
+            /* code */
+            break;
+        
+        default:
+            break;
+        }
+       } while (choice != 4 );
+       
+    } else {
+        return 0;
+    }
 
     return 0;
 }   
+
+int menu () {
+    
+    int choice;
+        printf("\n\nSilahkan pilih opsi di bawah ini\n");
+        printf("1. Cek Saldo Bank\n");
+        printf("2. Deposit Uang\n");
+        printf("3. Ambil Uang Dari Tabungan\n");
+        printf("4. Keluar dari program\n");
+        printf("Masukan pilihan anda dalam bentuk angka: ");
+        scanf("%d", &choice);
+    return choice;
+
+}
 
 int checkPassword () {
     int pass;
@@ -34,45 +73,8 @@ int checkPassword () {
             printf("\nPassword anda salah");
         }
     } while (pass != 12345);
-    
-
     return 0;
 }
-
-void menu (float balance) {
-    balance;
-    int choice;
-    do
-        {
-        printf("\n\nSilahkan pilih opsi di bawah ini\n");
-        printf("1. Cek Saldo Bank\n");
-        printf("2. Deposit Uang\n");
-        printf("3. Ambil Uang Dari Tabungan\n");
-        printf("4. Keluar dari program\n");
-        printf("Masukan pilihan anda dalam bentuk angka: ");
-        scanf("%d", &choice);
-        } while (choice < 1 || choice > 4);
-    
-    switch (choice)
-    {
-    case 1:
-        checkBalance(balance);
-        break;
-    case 2:
-    {    
-        deposit(balance);
-    }
-    case 3:
-        withdraw(balance);
-        break;
-    
-    default:
-    printf("\n**Selamat tinggal !!**");
-        break;
-    }
-}
-
-
 
 
 void checkBalance(float balance) { 
@@ -85,23 +87,23 @@ void checkBalance(float balance) {
         printf("Jumlah uang anda saat ini adalah adalah: Rp.%.0f", balance);        
     }
     
-    char choice ='\0';
-    printf("\nApakah anda ingin melakukan memilih opsi lain? (Y/N): ");
-    scanf(" %c", &choice);
-    do
-    {
-        if ( choice == 'Y' || choice == 'y')
-        {
-            menu(balance);
-        } else if ( choice == 'N' || choice == 'n') {
-            printf("\nTerimakasih telah menggunakan layanan bang akronim\nSampai Jumpa lagi :)");
-            exit(EXIT_SUCCESS);
-        } else {
-            printf("\nTolong masukan Input yang valid!! (Y/N): ");
-            scanf(" %c", &choice);
-        }
+    // char choice ='\0';
+    // printf("\nApakah anda ingin melakukan memilih opsi lain? (Y/N): ");
+    // scanf(" %c", &choice);
+    // do
+    // {
+    //     if ( choice == 'Y' || choice == 'y')
+    //     {
+    //         menu(balance);
+    //     } else if ( choice == 'N' || choice == 'n') {
+    //         printf("\nTerimakasih telah menggunakan layanan bang akronim\nSampai Jumpa lagi :)");
+    //         exit(EXIT_SUCCESS);
+    //     } else {
+    //         printf("\nTolong masukan Input yang valid!! (Y/N): ");
+    //         scanf(" %c", &choice);
+    //     }
         
-    } while ( (choice != 'Y' || choice != 'y') || (choice != 'N' || choice != 'n') );
+    // } while ( (choice != 'Y' || choice != 'y') || (choice != 'N' || choice != 'n') );
 }
 
 float deposit (float balance) {
@@ -112,17 +114,16 @@ float deposit (float balance) {
         printf("");
         scanf("%f", &jumlahDeposit);
     } while (jumlahDeposit <= 0);
-      char again = '\0'; 
         balance = jumlahDeposit+balance;
         printf("\nDeposit berhasil di lakukan total uang anda sekarang adalah: %f\n", balance);
-        printf("Apakah anda ingin melakukan operasi lain? (Y/N): ");
-        scanf(" %c", &again);
-        if (again == 'Y' || again == 'y')
-        {
-            menu(balance);
-        } else {
-            printf("\n\n** Selamat tinggal!! Terimakasih telah menggunakan layanan bank kami **");
-        }
+        // printf("Apakah anda ingin melakukan operasi lain? (Y/N): ");
+        // scanf(" %c", &again);
+        // if (again == 'Y' || again == 'y')
+        // {
+        //     menu(balance);
+        // } else {
+        //     printf("\n\n** Selamat tinggal!! Terimakasih telah menggunakan layanan bank kami **");
+        // }
      return balance;
 }
 
