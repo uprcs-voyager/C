@@ -28,7 +28,7 @@ int main () {
            balance = deposit(balance);
             break;
         case 3 :
-            /* code */
+            balance = withdraw(balance);
             break;
         case 4 :
             /* code */
@@ -127,9 +127,23 @@ float deposit (float balance) {
      return balance;
 }
 
-float withdraw (float jumlahmone) {
-    printf("Belum selesai");
+float withdraw (float balance) {
+    float withdrawAmount;
+    
+    if (balance > 0)
+{
+    do
+    {
+    printf("\nSilahkan masukan jumlah uang yang ingin anda ambil (masukan dalam bentuk angka):\n");
+    printf("");
+    scanf("%f", &withdrawAmount);
+        balance = balance-withdrawAmount;
+    printf("\nPengambilan uang berhasil, total saldo anda sekarang adalah: %f", balance);
+        return balance;
+    } while (withdrawAmount <= 0);
+} else {
+    printf("\nTidak cukup uang untuk melakukan pengambilan uang");
+}
 
 
-    return 0;
 }
